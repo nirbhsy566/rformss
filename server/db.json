@@ -1,0 +1,47 @@
+{
+  "two": [
+    {
+      "id": 1,
+      "fullName": "nirmal kr",
+      "contactPreference": "email",
+      "email": "nirmal4kjkk@dell.com",
+      "phone": "0000000000",
+      "skills": [
+        {
+          "skillName": "C#",
+          "experienceInYears": 1,
+          "proficiency": "beginner"
+        },
+        {
+          "skillName": "Java",
+          "experienceInYears": 2,
+          "proficiency": "intermediate"
+        },
+        {
+          "skillName": "testing",
+          "experienceInYears": "8",
+          "proficiency": "advanced"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fullName": "Johnand jo",
+      "contactPreference": "phone",
+      "email": "abc@dell.com",
+      "phone": "971124485581",
+      "skills": [
+        {
+          "skillName": "Angular",
+          "experienceInYears": 2,
+          "proficiency": "beginner"
+        },
+        {
+          "skillName": "HTML",
+          "experienceInYears": 2,
+          "proficiency": "intermediate"
+        }
+      ]
+    }
+  ]
+}

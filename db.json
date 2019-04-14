@@ -1,0 +1,193 @@
+{
+  "two": [
+    {
+      "id": 1,
+      "fullName": "Mark",
+      "contactPreference": "email",
+      "email": "mark@email.com",
+      "phone": "5641238971",
+      "skills": [
+        {
+          "skillName": "C#",
+          "experienceInYears": 1,
+          "proficiency": "beginner"
+        },
+        {
+          "skillName": "Java",
+          "experienceInYears": 2,
+          "proficiency": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "fullName": "John kumar",
+      "contactPreference": "email",
+      "email": "john@dell.com",
+      "phone": "90000",
+      "skills": [
+        {
+          "skillName": "Angular",
+          "experienceInYears": 2,
+          "proficiency": "beginner"
+        },
+        {
+          "skillName": "HTML",
+          "experienceInYears": 2,
+          "proficiency": "intermediate"
+        },
+        {
+          "skillName": "LINQ",
+          "experienceInYears": 3,
+          "proficiency": "advanced"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "fullName": "Pragim Te",
+      "contactPreference": "email",
+      "email": "abnnnnnnc@dell.com",
+      "phone": "",
+      "skills": [
+        {
+          "skillName": "cc",
+          "experienceInYears": "1",
+          "proficiency": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "fullName": "Pragim Te",
+      "contactPreference": "email",
+      "email": "abnnnnnnc@dell.com",
+      "phone": "",
+      "skills": [
+        {
+          "skillName": "cc",
+          "experienceInYears": "1",
+          "proficiency": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "fullName": "domkr",
+      "contactPreference": "email",
+      "email": "dom@dell.com",
+      "phone": "5555555",
+      "skills": [
+        {
+          "skillName": "testinnnnnnn",
+          "experienceInYears": "54",
+          "proficiency": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "fullName": "domkr",
+      "contactPreference": "email",
+      "email": "dom@dell.com",
+      "phone": "777777",
+      "skills": [
+        {
+          "skillName": "testinnnnnnn",
+          "experienceInYears": "54",
+          "proficiency": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "fullName": "ssdsd",
+      "contactPreference": "email",
+      "email": "ad@dell.com",
+      "phone": "65656674534234123149",
+      "skills": [
+        {
+          "skillName": "kkkk",
+          "experienceInYears": "8",
+          "proficiency": "intermediate"
+        },
+        {
+          "skillName": "rt",
+          "experienceInYears": "4",
+          "proficiency": "advanced"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "fullName": "ssdsd",
+      "contactPreference": "email",
+      "email": "ad@dell.com",
+      "phone": "",
+      "skills": [
+        {
+          "skillName": "kkkk",
+          "experienceInYears": "8",
+          "proficiency": "intermediate"
+        },
+        {
+          "skillName": "rt",
+          "experienceInYears": "4",
+          "proficiency": "advanced"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "fullName": "nirbhay",
+      "contactPreference": "email",
+      "email": "abc@dell.com",
+      "phone": "09999999999",
+      "skills": [
+        {
+          "skillName": "testinnnnnnn",
+          "experienceInYears": "54",
+          "proficiency": "beginner"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "fullName": "",
+      "contactPreference": "",
+      "email": "",
+      "phone": null,
+      "skills": []
+    },
+    {
+      "id": 11,
+      "fullName": "",
+      "contactPreference": "",
+      "email": "",
+      "phone": null,
+      "skills": []
+    },
+    {
+      "id": 12,
+      "fullName": "",
+      "contactPreference": "",
+      "email": "",
+      "phone": null,
+      "skills": []
+    },
+    {
+      "id": 13,
+      "fullName": "nirbhay",
+      "contactPreference": "email",
+      "email": "dom@dell.com",
+      "phone": "111111111111",
+      "skills": [
+        {
+          "skillName": "cc",
+          "experienceInYears": "1",
+          "proficiency": "advanced"
+        }
+      ]
+    }
+  ]
+}
