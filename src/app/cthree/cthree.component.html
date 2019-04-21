@@ -1,3 +1,56 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" [formGroup]="lkljlyeeForm">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Link</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 <div class="btn-group">
   <button class="btn btn-danger">Button 1</button>
   <button class="btn btn-default">Button 2</button>
@@ -10,125 +63,108 @@
 <br>
 <div class="btn-toolbar">
   <div class="btn-group">
-      <a href="#" class="btn btn-danger">Button 1</a>
-    </div>
-    <div class="btn-group">
-      <a href="#" class="btn btn-default">Button 2</a>
+    <a href="#" class="btn btn-danger">Button 1</a>
   </div>
   <div class="btn-group">
-      <a href="#" class="btn btn-info">Button 3</a>
-    </div>
-    <div class="btn-group">
-      <a href="#" class="btn btn-primary">Button 4</a>
-    </div>
-    <div class="btn-group">
-      <a href="#" class="btn btn-success">Button 5</a>
+    <a href="#" class="btn btn-default">Button 2</a>
   </div>
   <div class="btn-group">
-      <a href="#" class="btn btn-warning">Button 6</a>
+    <a href="#" class="btn btn-info">Button 3</a>
+  </div>
+  <div class="btn-group">
+    <a href="#" class="btn btn-primary">Button 4</a>
+  </div>
+  <div class="btn-group">
+    <a href="#" class="btn btn-success">Button 5</a>
+  </div>
+  <div class="btn-group">
+    <a href="#" class="btn btn-warning">Button 6</a>
+  </div>
+  <div class="btn-group">
+    <a href="#" class="btn btn-primary">Button 7</a>
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xl-6">
+      <form class="form-horizontal" [formGroup]="emploljjjkljkljlyeeForm">
+        <div class="form-group has-success">
+          <label class="col-xs-2 control-label" for="txtStrongPassword">Password</label>
+          <div class="col-xs-10">
+            <input type="password" id="txtStrongPassword" class="form-control" placeholder="Your password">
+            <span class="help-block">Strong Password</span>
+          </div>
+        </div>
+        <div class="form-group has-warning">
+          <label class="col-xs-2 control-label" for="txtWeakPassword">Password</label>
+          <div class="col-xs-10">
+            <input type="password" id="txtWeakPassword" class="form-control" placeholder="Your password">
+            <span class="help-block">Weak Password</span>
+          </div>
+        </div>
+        <div class="form-group has-error">
+          <label class="col-xs-2 control-label" for="txtAge">Age</label>
+          <div class="col-xs-10">
+            <input type="number" id="txtAge" class="form-control" placeholder="Your Age">
+            <span class="help-block">Invalid Age</span>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="btn-group">
-      <a href="#" class="btn btn-primary">Button 7</a>
   </div>
 </div>
 
-<ul class="list-inline">
-  <li>India</li>
-  <li>USA</li>
-  <li>UK</li>
-  <li>Australia</li>
-  <li>Canada</li>
-</ul>
-<form class="form-horizontal">
-  <div class="form-group has-success">
-      <label class="col-xs-2 control-label" for="txtStrongPassword">Password</label>
-      <div class="col-xs-10">
-          <input type="password" id="txtStrongPassword" class="form-control"
-                  placeholder="Your password">
-          <span class="help-block">Strong Password</span>
-      </div>
-  </div>
-  <div class="form-group has-warning">
-      <label class="col-xs-2 control-label" for="txtWeakPassword">Password</label>
-      <div class="col-xs-10">
-          <input type="password" id="txtWeakPassword" class="form-control"
-                  placeholder="Your password">
-          <span class="help-block">Weak Password</span>
-      </div>
-  </div>
-  <div class="form-group has-error">
-      <label class="col-xs-2 control-label" for="txtAge">Age</label>
-      <div class="col-xs-10">
-          <input type="number" id="txtAge" class="form-control"
-                  placeholder="Your Age">
-          <span class="help-block">Invalid Age</span>
-      </div>
-  </div>
-</form>
-<form class="form-horizontal">
+<br>
+<form class="form-horizontal" [formGroup]="ljkljlyeeForm">
   <div class="form-group has-success has-feedback">
-      <label class="col-xs-2 control-label" for="txtStrongPassword">Password</label>
-      <div class="col-xs-10">
-          <input type="password" id="txtStrongPassword" class="form-control"
-                  placeholder="Your password">
-          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-          <span class="help-block">Strong Password</span>
+    <label class="col-xs-2 control-label" for="txtStrongPassword">Income</label>
+    <div class="col-xs-10">
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" id="txtIncome" class="form-control" placeholder="Your annual income after taxes">
       </div>
+      <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+      <span class="help-block">Success</span>
+    </div>
   </div>
   <div class="form-group has-warning has-feedback">
-      <label class="col-xs-2 control-label" for="txtWeakPassword">Password</label>
-      <div class="col-xs-10">
-          <input type="password" id="txtWeakPassword" class="form-control"
-                  placeholder="Your password">
-          <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-          <span class="help-block">Weak Password</span>
+    <label class="col-xs-2 control-label" for="txtStrongPassword">Income</label>
+    <div class="col-xs-10">
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" id="txtIncome" class="form-control" placeholder="Your annual income after taxes">
       </div>
+      <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+      <span class="help-block">Warning</span>
+    </div>
   </div>
   <div class="form-group has-error has-feedback">
-      <label class="col-xs-2 control-label" for="txtAge">Age</label>
-      <div class="col-xs-10">
-          <input type="number" id="txtAge" class="form-control"
-                  placeholder="Your Age">
-          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-          <span class="help-block">Invalid Age</span>
+    <label class="col-xs-2 control-label" for="txtStrongPassword">Income</label>
+    <div class="col-xs-10">
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" id="txtIncome" class="form-control" placeholder="Your annual income after taxes">
       </div>
+      <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <span class="help-block">Error</span>
+    </div>
   </div>
 </form>
-<form class="form-horizontal">
-  <div class="form-group has-success has-feedback">
-      <label class="col-xs-2 control-label" for="txtStrongPassword">Income</label>
-      <div class="col-xs-10">
-          <div class="input-group">
-              <span class="input-group-addon">$</span>
-              <input type="text" id="txtIncome" class="form-control"
-                      placeholder="Your annual income after taxes">
-          </div>
-          <span class="glyphicon glyphicon-ok form-control-feedback"></span>
-          <span class="help-block">Success</span>
-      </div>
+<div class="col-lg-6">
+  <div class="input-group">
+    <input type="text" class="form-control" />
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-default">Cut</button>
+      <button type="button" class="btn btn-default">Copy</button>
+      <button type="button" class="btn btn-default">Paste</button>
+    </div>
   </div>
-  <div class="form-group has-warning has-feedback">
-      <label class="col-xs-2 control-label" for="txtStrongPassword">Income</label>
-      <div class="col-xs-10">
-          <div class="input-group">
-              <span class="input-group-addon">$</span>
-              <input type="text" id="txtIncome" class="form-control"
-                      placeholder="Your annual income after taxes">
-          </div>
-          <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-          <span class="help-block">Warning</span>
-      </div>
-  </div>
-  <div class="form-group has-error has-feedback">
-      <label class="col-xs-2 control-label" for="txtStrongPassword">Income</label>
-      <div class="col-xs-10">
-          <div class="input-group">
-              <span class="input-group-addon">$</span>
-              <input type="text" id="txtIncome" class="form-control"
-                      placeholder="Your annual income after taxes">
-          </div>
-          <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-          <span class="help-block">Error</span>
-      </div>
-  </div>
-</form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

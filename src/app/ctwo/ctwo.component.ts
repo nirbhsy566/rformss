@@ -31,7 +31,7 @@ export class CtwoComponent implements OnInit {
       }, { validator: matchEmails }),
       phone: [''],
       skills: this.fb.array([
-        this.addSkillFormGroup() // DYNAMIC INTERFACE FUNCTION
+        this.addSkillFormGroup() // DYNAMIC INTERFACE FUNCTION line 142
       ])
     });
 
@@ -48,7 +48,7 @@ export class CtwoComponent implements OnInit {
     // RADIO BUTTON
     this.employeeForm.get('contactPreference')
       .valueChanges.subscribe((data: string) => {
-        this.onContactPrefernceChange(data);       // FUNCTION CALLING
+        this.onContactPrefernceChange(data);       // FUNCTION CALLING    line 151
       });
 
     this.employeeForm.valueChanges.subscribe((data) => {
@@ -58,7 +58,7 @@ export class CtwoComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const empId = +params.get('id');
       if (empId) {
-        this.getEmployee(empId);
+        this.getEmployee(empId); // line77
       } else {
         this.employee = {
           id: null,
@@ -73,7 +73,7 @@ export class CtwoComponent implements OnInit {
   }
   // ON INIT MODULE ENDS
 
-  //  CALLING GET API SERVICE API
+  //  CALLING GET API SERVICE APIiiiiiiiiiiiiiiiiiiiiiiiii
   getEmployee(id: number) {
     this.employeeService.getEmployee(id)
       .subscribe(
@@ -84,7 +84,7 @@ export class CtwoComponent implements OnInit {
         (err: any) => console.log(err)
       );
   }
-  // UPDATE BUTTON FUNCTION SERVICE API
+  // UPDATE BUTTON FUNCTION SERVICE API iiiiiiiiiiiiiiiiiiiiiiiiii
   onSubmit(): void {
     this.mapFormValuesToEmployeeModel();
     if (this.employee.id) {
@@ -94,7 +94,7 @@ export class CtwoComponent implements OnInit {
       );
     }
   }
-  // ADD BUTTON FUNCTION SERVICE API
+  // ADD BUTTON FUNCTION SERVICE API iiiiiiiiiiiiiiiiiiiiiiiiiii
   onadd(): void {
     this.mapFormValuesToEmployeeModel();
     this.employeeService.addEmployee(this.employee).subscribe(
@@ -109,6 +109,9 @@ export class CtwoComponent implements OnInit {
     this.employee.phone = this.employeeForm.value.phone;
     this.employee.skills = this.employeeForm.value.skills;
   }
+
+
+
   // MERGING  GET JASON FILE
   editEmployee(employee: IEmployee) {
     this.employeeForm.patchValue({
@@ -135,7 +138,7 @@ export class CtwoComponent implements OnInit {
     return formArray;
   }
 
-  // DYNAMIC GENERATION
+  // DYNAMIC GENERATION line 183
   addSkillFormGroup(): FormGroup {
     return this.fb.group({
       skillName: ['', Validators.required],
