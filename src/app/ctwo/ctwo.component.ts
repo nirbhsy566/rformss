@@ -34,6 +34,22 @@ export class CtwoComponent implements OnInit {
         this.addSkillFormGroup() // DYNAMIC INTERFACE FUNCTION line 142
       ])
     });
+    // ROUT PARAM PASSING
+    this.route.paramMap.subscribe(params => {
+      const empId = +params.get('id');
+      if (empId) {
+        this.getEmployee(empId); // line  93
+      } else {
+        this.employee = {
+          id: null,
+          fullName: '',
+          contactPreference: '',
+          email: '',
+          phone: null,
+          skills: []
+        };
+      }
+    });
 
     // CROSS VALIDATION
     function matchEmails(group: AbstractControl): { [key: string]: any } | null {
@@ -54,32 +70,32 @@ export class CtwoComponent implements OnInit {
     this.employeeForm.valueChanges.subscribe((data) => {
       this.logValidationErrors(this.employeeForm);
     });
-    // ROUT PARAM PASSING
-    this.route.paramMap.subscribe(params => {
-      const empId = +params.get('id');
-      if (empId) {
-        this.getEmployee(empId); // line77
-      } else {
-        this.employee = {
-          id: null,
-          fullName: '',
-          contactPreference: '',
-          email: '',
-          phone: null,
-          skills: []
-        };
-      }
-    });
+
   }
   // ON INIT MODULE ENDS
 
+  // MERGING  GET JASON FILE
+  editEmployee(employee: IEmployee) {
+    this.employeeForm.patchValue({
+      fullName: employee.fullName,
+      contactPreference: employee.contactPreference,
+      emailGroup: {
+        email: employee.email,
+        confirmEmail: employee.email
+      },
+      phone: employee.phone
+    });
+    this.employeeForm.setControl('skills', this.setExistingSkills(employee.skills));
+  }
+
+  //  CALLING API NEEDEDDDDDDDDDD
   //  CALLING GET API SERVICE APIiiiiiiiiiiiiiiiiiiiiiiiii
   getEmployee(id: number) {
     this.employeeService.getEmployee(id)
       .subscribe(
         (employee: IEmployee) => {
           this.employee = employee;
-          this.editEmployee(employee);
+          this.editEmployee(employee); //LINE 78
         },
         (err: any) => console.log(err)
       );
@@ -109,22 +125,8 @@ export class CtwoComponent implements OnInit {
     this.employee.phone = this.employeeForm.value.phone;
     this.employee.skills = this.employeeForm.value.skills;
   }
+  // ENDDDDDDDDDDDDDD APIIIIIIIIIII
 
-
-
-  // MERGING  GET JASON FILE
-  editEmployee(employee: IEmployee) {
-    this.employeeForm.patchValue({
-      fullName: employee.fullName,
-      contactPreference: employee.contactPreference,
-      emailGroup: {
-        email: employee.email,
-        confirmEmail: employee.email
-      },
-      phone: employee.phone
-    });
-    this.employeeForm.setControl('skills', this.setExistingSkills(employee.skills));
-  }
   // DYNAMIC FORM FOR API
   setExistingSkills(skillSets: ISkill[]): FormArray {
     const formArray = new FormArray([]);
