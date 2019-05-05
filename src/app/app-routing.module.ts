@@ -9,12 +9,12 @@ import { ListEmployeesComponent } from './list-employees/list-employees.componen
 const routes: Routes = [
   { path: 'one', component: ConeComponent },
   { path: 'edit', component: CtwoComponent },
-  {path: 'list', component: ListEmployeesComponent },
+  { path: 'list', component: ListEmployeesComponent },
   { path: 'edit/:id', component: CtwoComponent },
   { path: 'three', component: CthreeComponent },
   { path: 'four', component: CfourComponent },
   { path: 'five', component: CfiveComponent },
- 
+
 ];
 
 @NgModule({
