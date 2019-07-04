@@ -24,16 +24,16 @@ export class EmployeeService {
     addEmployee(employee: IEmployee): Observable<IEmployee> {
         return this.httpClient.post<IEmployee>(this.baseUrl, employee, {
             headers: new HttpHeaders({
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             })
         })
-        .pipe(catchError(this.handleError));
+            .pipe(catchError(this.handleError));
     }
     // UPDATING DATA TO DATABASE
     updateEmployee(employee: IEmployee): Observable<void> {
         return this.httpClient.put<void>(`${this.baseUrl}/${employee.id}`, employee, {
             headers: new HttpHeaders({
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             })
         })
             .pipe(catchError(this.handleError));
