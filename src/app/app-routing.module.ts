@@ -7,6 +7,7 @@ import { CfourComponent } from './cfour/cfour.component';
 import { CfiveComponent } from './cfive/cfive.component';
 import { ListEmployeesComponent } from './list-employees/list-employees.component';
 const routes: Routes = [
+  { path: '', component: CtwoComponent },
   { path: 'one', component: ConeComponent },
   { path: 'edit', component: CtwoComponent },
   { path: 'list', component: ListEmployeesComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'three', component: CthreeComponent },
   { path: 'four', component: CfourComponent },
   { path: 'five', component: CfiveComponent },
-
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

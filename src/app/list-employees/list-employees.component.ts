@@ -1,9 +1,9 @@
-
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../ctwo/employee.service';
 import { IEmployee } from '../IEmployee';
 import { Router } from '@angular/router';
-
+import { ActivatedRoute } from '@angular/router';
+import { ISkill } from '../ISkill';
 @Component({
   selector: 'app-list-employees',
   templateUrl: './list-employees.component.html',
@@ -12,15 +12,21 @@ import { Router } from '@angular/router';
 export class ListEmployeesComponent implements OnInit {
   employees: IEmployee[];
 
-  constructor(private _employeeService: EmployeeService, private _router: Router) { }
+  constructor( private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router) { }
 
   editButtonClick(employeeId: number) {
-    this._router.navigate(['/edit', employeeId]);
+    this.router.navigate(['/edit', employeeId]);
   }
-
+  deleteButtonClick(employeeid: number)
+  {
+    this.employeeService.deleteEmployee(employeeid).subscribe(
+      () => this.router.navigate(['lisklk']),
+      (err: any) => console.log(err)
+    );
+  }
   ngOnInit() {
     // CALLING GET API FROM SERVICE
-    this._employeeService.getEmployees().subscribe(
+    this.employeeService.getEmployees().subscribe(
       (employeeList) => this.employees = employeeList,
       (err) => console.log(err)
     );

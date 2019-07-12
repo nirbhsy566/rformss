@@ -7,6 +7,7 @@
         <th>Phone</th>
         <th>Contact Preference</th>
         <th>Action</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +16,8 @@
         <td>{{ employee.email }}</td>
         <td>{{ employee.phone }}</td>
         <td>{{ employee.contactPreference }}</td>
-        <td> <button class="btn btn-primary"  (click)="editButtonClick(employee.id)">Edit</button> </td>
+        <td> <button class="btn btn-primary"  (click)="editButtonClick(employee.id)">Edit</button></td>
+        <td> <button class="btn btn-primary"  (click)="deleteButtonClick(employee.id)">DELETE</button> </td>
       </tr>
     </tbody>
   </table>

@@ -85,7 +85,7 @@ export class CtwoComponent implements OnInit {
       },
       phone: employee.phone
     });
-    this.employeeForm.setControl('skills', this.setExistingSkills(employee.skills));
+    this.employeeForm.setControl('skills', this.setExistingSkills(employee.skills)); // line 131
   }
 
   //  CALLING API NEEDEDDDDDDDDDD
