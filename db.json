@@ -51,6 +51,25 @@
           "proficiency": "intermediate"
         }
       ]
+    },
+    {
+      "id": 4,
+      "fullName": "nirm kumar",
+      "contactPreference": "phone",
+      "email": "abc@dell.com",
+      "phone": "989037846209",
+      "skills": [
+        {
+          "skillName": "test",
+          "experienceInYears": "4",
+          "proficiency": "intermediate"
+        },
+        {
+          "skillName": "seleium",
+          "experienceInYears": "3",
+          "proficiency": "intermediate"
+        }
+      ]
     }
   ]
 }

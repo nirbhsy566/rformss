@@ -16,6 +16,7 @@ export class CtwoComponent implements OnInit {
   employee: IEmployee;
   // json-server --watch db.json
   // COUNSTRUCTOR
+  //ng build --prod
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router) {
   }
 
