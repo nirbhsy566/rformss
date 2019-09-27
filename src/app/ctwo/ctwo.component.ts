@@ -16,10 +16,9 @@ export class CtwoComponent implements OnInit {
   employee: IEmployee;
   // json-server --watch db.json
   // COUNSTRUCTOR
-  //ng build --prod
+  // ng build --prod
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router) {
   }
-
   // ON INIT MODULE START
   ngOnInit() {
     // VALIDATON FORM GROUP
@@ -62,20 +61,52 @@ export class CtwoComponent implements OnInit {
         return { 'emailMismatch': true };
       }
     }
-    // RADIO BUTTON
-    this.employeeForm.get('contactPreference')
-      .valueChanges.subscribe((data: string) => {
-        this.onContactPrefernceChange(data);       // FUNCTION CALLING    line 151
+    // RADIO BUTTON OBSERVABLE SUBSCRIPTION
+    this.employeeForm.get('contactPreference').valueChanges.subscribe((data: string) => {
+        this.onContactPrefernceChange(data);           // FUNCTION CALLING    line 99
       });
-
+    // VALIDATION OBSERVABLE SUBSCRIPTION
     this.employeeForm.valueChanges.subscribe((data) => {
-      this.logValidationErrors(this.employeeForm);
+      this.logValidationErrors(this.employeeForm);    // FUNCTION CALLING    line 78
     });
 
   }
   // ON INIT MODULE ENDS
 
-  // MERGING  GET JASON FILE
+// THIS IS MAIN LOG VALIDATION  VALIDATION OBSERVABLE
+logValidationErrors(group: FormGroup = this.employeeForm): void {
+  Object.keys(group.controls).forEach((key: string) => {
+    const abstractControl = group.get(key);
+    this.formErrors[key] = '';
+    if (abstractControl && !abstractControl.valid &&
+      (abstractControl.touched || abstractControl.dirty || abstractControl.value !== '')) {
+      const messages = this.validationMessages[key];
+
+      for (const errorKey in abstractControl.errors) {
+        if (errorKey) {
+          this.formErrors[key] += messages[errorKey] + ' ';
+        }
+      }
+    }
+    if (abstractControl instanceof FormGroup) {
+      this.logValidationErrors(abstractControl);
+    }
+  });
+}
+
+  // CONTACT PREFERENCE DETAIL  RADIO BUTTON OBSERVABLE
+  onContactPrefernceChange(selectedValue: string) {
+    const phoneFormControl = this.employeeForm.get('phone');
+    if (selectedValue === 'phone') {
+      phoneFormControl.setValidators(Validators.required);
+    } else {
+      phoneFormControl.clearValidators();
+    }
+    phoneFormControl.updateValueAndValidity();
+  }
+
+  // LOAD TIME
+  // EDIT FORM DATA
   editEmployee(employee: IEmployee) {
     this.employeeForm.patchValue({
       fullName: employee.fullName,
@@ -86,7 +117,40 @@ export class CtwoComponent implements OnInit {
       },
       phone: employee.phone
     });
-    this.employeeForm.setControl('skills', this.setExistingSkills(employee.skills)); // line 131
+    this.employeeForm.setControl('skills', this.setExistingSkills(employee.skills));  //CALLING DYNAMIC FORM TYPE ARRAY LOAD TIME
+  }
+  // DYNAMIC FORM FOR API LOADING TIME
+  setExistingSkills(skillSets: ISkill[]): FormArray {
+    const formArray = new FormArray([]);
+    skillSets.forEach(s => {
+      formArray.push(this.fb.group({
+        skillName: s.skillName,
+        experienceInYears: s.experienceInYears,
+        proficiency: s.proficiency
+      }));
+    });
+    return formArray;
+  }
+
+  // DYNAMIC FORM TYPE WHILE ADDING DATA
+  // DYNAMIC GENERATION 
+  addSkillFormGroup(): FormGroup {
+    return this.fb.group({
+      skillName: ['', Validators.required],
+      experienceInYears: ['', Validators.required],
+      proficiency: ['', Validators.required]
+    });
+  }
+ // ADDING FORM GROUP
+  addSkillButtonClick(): void {
+    (<FormArray>this.employeeForm.get('skills')).push(this.addSkillFormGroup());
+  }
+  //REMOVING FORM GROUP
+  removeSkillButtonClick(skillGroupIndex: number): void {
+    const skillsFormArray = <FormArray>this.employeeForm.get('skills');
+    skillsFormArray.removeAt(skillGroupIndex);
+    skillsFormArray.markAsDirty();
+    skillsFormArray.markAsTouched();
   }
 
   //  CALLING API NEEDEDDDDDDDDDD
@@ -96,7 +160,7 @@ export class CtwoComponent implements OnInit {
       .subscribe(
         (employee: IEmployee) => {
           this.employee = employee;
-          this.editEmployee(employee); //LINE 78
+          this.editEmployee(employee); // LINE 78
         },
         (err: any) => console.log(err)
       );
@@ -127,70 +191,6 @@ export class CtwoComponent implements OnInit {
     this.employee.skills = this.employeeForm.value.skills;
   }
   // ENDDDDDDDDDDDDDD APIIIIIIIIIII
-
-  // DYNAMIC FORM FOR API
-  setExistingSkills(skillSets: ISkill[]): FormArray {
-    const formArray = new FormArray([]);
-    skillSets.forEach(s => {
-      formArray.push(this.fb.group({
-        skillName: s.skillName,
-        experienceInYears: s.experienceInYears,
-        proficiency: s.proficiency
-      }));
-    });
-    return formArray;
-  }
-
-  // DYNAMIC GENERATION line 183
-  addSkillFormGroup(): FormGroup {
-    return this.fb.group({
-      skillName: ['', Validators.required],
-      experienceInYears: ['', Validators.required],
-      proficiency: ['', Validators.required]
-    });
-  }
-
-  // CONTACT PREFERENCE DETAIL
-  onContactPrefernceChange(selectedValue: string) {
-    const phoneFormControl = this.employeeForm.get('phone');
-    if (selectedValue === 'phone') {
-      phoneFormControl.setValidators(Validators.required);
-    } else {
-      phoneFormControl.clearValidators();
-    }
-    phoneFormControl.updateValueAndValidity();
-  }
-  // THIS IS MAIN LOG VALIDATION
-  logValidationErrors(group: FormGroup = this.employeeForm): void {
-    Object.keys(group.controls).forEach((key: string) => {
-      const abstractControl = group.get(key);
-      this.formErrors[key] = '';
-      if (abstractControl && !abstractControl.valid &&
-        (abstractControl.touched || abstractControl.dirty || abstractControl.value !== '')) {
-        const messages = this.validationMessages[key];
-
-        for (const errorKey in abstractControl.errors) {
-          if (errorKey) {
-            this.formErrors[key] += messages[errorKey] + ' ';
-          }
-        }
-      }
-      if (abstractControl instanceof FormGroup) {
-        this.logValidationErrors(abstractControl);
-      }
-    });
-  }
-
-  // ADDING/REMOVING FORM GROUP
-  addSkillButtonClick(): void {
-    (<FormArray>this.employeeForm.get('skills')).push(this.addSkillFormGroup());
-  }
-  removeSkillButtonClick(skillGroupIndex: number): void {
-    const skillsFormArray = <FormArray>this.employeeForm.get('skills');
-    skillsFormArray.removeAt(skillGroupIndex);
-    skillsFormArray.markAsDirty();
-    skillsFormArray.markAsTouched();
-  }
   // END
 
   // VALIDATION MESSAGES
@@ -216,5 +216,4 @@ export class CtwoComponent implements OnInit {
   };
   formErrors = {
   };
-
 }
